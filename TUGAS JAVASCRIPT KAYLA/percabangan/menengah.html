@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal menengah</title>
+</head>
+<body>
+    <h1>Latihan Menengah</h1>
+
+    <h2>1. Bilangan Terbesar dari Dua Bilangan</h2>
+    <input type="number" id="num1" placeholder="Bilangan x">
+    <input type="number" id="num2" placeholder="Bilangan y">
+    <button onclick="findLargest()">Cari Bilangan Terbesar</button>
+
+    <h2>2. Jenis Akar Persamaan Kuadrat</h2>
+    <input type="number" id="a" placeholder="Koefisien a">
+    <input type="number" id="b" placeholder="Koefisien b">
+    <input type="number" id="c" placeholder="Koefisien c">
+    <button onclick="findRootsType()">Cek Jenis Akar</button>
+
+    <h2>3. Indeks Akhir Mahasiswa</h2>
+    <input type="number" id="uts" placeholder="Nilai UTS">
+    <input type="number" id="uas" placeholder="Nilai UAS">
+    <input type="number" id="tugas" placeholder="Nilai Tugas">
+    <button onclick="calculateGrade()">Cek Indeks</button>
+
+    <h2>4. Bilangan Terbesar dari Tiga Bilangan</h2>
+    <input type="number" id="x" placeholder="Bilangan x">
+    <input type="number" id="y" placeholder="Bilangan y">
+    <input type="number" id="z" placeholder="Bilangan z">
+    <button onclick="findLargestOfThree()">Cari Bilangan Terbesar</button>
+
+    <h2>5. Letak Kuadran</h2>
+    <input type="number" id="xPoint" placeholder="Koordinat x">
+    <input type="number" id="yPoint" placeholder="Koordinat y">
+    <button onclick="findQuadrant()">Cek Kuadran</button>
+
+    <h2>6. Hari Ke Berapa dalam Tahun</h2>
+    <input type="number" id="day" placeholder="Tanggal">
+    <input type="number" id="month" placeholder="Bulan">
+    <button onclick="findDayOfYear()">Cek Hari ke-</button>
+
+    <script>
+        function findLargest() {
+            const x = parseFloat(document.getElementById('num1').value);
+            const y = parseFloat(document.getElementById('num2').value);
+            const largest = Math.max(x, y);
+            alert(`Bilangan Terbesar: ${largest}`);
+        }
+
+        function findRootsType() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            const D = b * b - 4 * a * c;
+            let result;
+            if (D > 0) result = 'Akar real berbeda';
+            else if (D === 0) result = 'Akar real sama';
+            else result = 'Akar imaginer';
+            alert(result);
+        }
+
+        function calculateGrade() {
+            const uts = parseFloat(document.getElementById('uts').value);
+            const uas = parseFloat(document.getElementById('uas').value);
+            const tugas = parseFloat(document.getElementById('tugas').value);
+            const NA = (uts * 0.35) + (uas * 0.45) + (tugas * 0.20);
+            let grade;
+            if (NA >= 80) grade = 'A';
+            else if (NA >= 70) grade = 'B';
+            else if (NA >= 50) grade = 'C';
+            else if (NA >= 40) grade = 'D';
+            else grade = 'E';
+            alert(`Indeks: ${grade}`);
+        }
+
+        function findLargestOfThree() {
+            const x = parseFloat(document.getElementById('x').value);
+            const y = parseFloat(document.getElementById('y').value);
+            const z = parseFloat(document.getElementById('z').value);
+            const largest = Math.max(x, y, z);
+            alert(`Bilangan Terbesar: ${largest}`);
+        }
+
+        function findQuadrant() {
+            const x = parseFloat(document.getElementById('xPoint').value);
+            const y = parseFloat(document.getElementById('yPoint').value);
+            let quadrant;
+            if (x > 0 && y > 0) quadrant = 'Kuadran I';
+            else if (x < 0 && y > 0) quadrant = 'Kuadran II';
+            else if (x < 0 && y < 0) quadrant = 'Kuadran III';
+            else if (x > 0 && y < 0) quadrant = 'Kuadran IV';
+            else quadrant = 'Titik berada di sumbu';
+            alert(quadrant);
+        }
+
+        function findDayOfYear() {
+            const day = parseInt(document.getElementById('day').value);
+            const month = parseInt(document.getElementById('month').value);
+            const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            let dayOfYear = day;
+            for (let i = 0; i < month - 1; i++) {
+                dayOfYear += daysInMonth[i];
+            }
+            alert(`Hari ke: ${dayOfYear}`);
+        }
+    </script>
+</body>
+</html>

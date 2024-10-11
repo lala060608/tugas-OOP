@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menampilkan Bilangan dari batasAwal hingga batasAkhir</title>
+    <script>
+        function tampilkanBilangan() {
+            // Mengambil nilai batasAwal dan batasAkhir dari input
+            let batasAwal = parseInt(document.getElementById("batasAwal").value);
+            let batasAkhir = parseInt(document.getElementById("batasAkhir").value);
+            let i = batasAwal; // Inisialisasi i dengan batasAwal
+            
+            // Memastikan batasAwal dan batasAkhir valid (batasAwal <= batasAkhir)
+            if (batasAwal > 0 && batasAwal <= batasAkhir) {
+                console.clear(); // Membersihkan konsol sebelum menampilkan
+                while (i <= batasAkhir) {
+                    console.log(i); // Menampilkan bilangan di konsol
+                    i++; // Increment i
+                }
+            } else {
+                console.log("Input tidak valid. Pastikan batasAwal > 0 dan batasAwal <= batasAkhir.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Menampilkan Bilangan dari batasAwal hingga batasAkhir</h1>
+    <label for="batasAwal">Batas Awal:</label>
+    <input type="number" id="batasAwal" required><br><br>
+    
+    <label for="batasAkhir">Batas Akhir:</label>
+    <input type="number" id="batasAkhir" required><br><br>
+    
+    <button onclick="tampilkanBilangan()">Tampilkan Bilangan</button>
+</body>
+</html>
